@@ -5,6 +5,7 @@ import { fetchTable } from '../../store/mainSlice';
 import TableComponent from '../TableComponent/TableComponent';
 import Filters from '../Filters/Filters';
 import Paginator from '../Paginator/Paginator';
+import Spinner from 'react-bootstrap/Spinner'
 
 import './App.css';
 
@@ -81,7 +82,7 @@ const App = () => {
       {!isLoading ?
         <div> <Filters />
           {data.length ? <TableComponent data={currentItems} /> : "Ничего не найдено. Попробуйте изменить фильтры."}
-          {data.length > 10 && <Paginator paginate={paginate} itemsPerPage={itemsPerPage} totalItems={data.length} />}</div> : <div><h2>loading...</h2> </div>}
+          {data.length > 10 && <Paginator paginate={paginate} itemsPerPage={itemsPerPage} totalItems={data.length} />}</div> : <Spinner animation="border" variant="primary" />}
     </div>
   );
 

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import { useDispatch } from 'react-redux';
 import { resetFilterData, setFilterData } from '../../store/mainSlice';
-import FormError from '../FormError/FormError';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
@@ -46,14 +45,14 @@ const Filters = () => {
 
       <Form className='form-container'>
 
-        <select className="form-select" aria-label="Default select example" defaultValue={'default'} onChange={(e) => { setColumn(e.currentTarget.value) }}>
-          <option value="default" disabled >Выберите колонку</option>
+        <select className="form-select" aria-label="Default select example" value={column} onChange={(e) => { setColumn(e.currentTarget.value) }}>
+          <option value="" disabled >Выберите колонку</option>
           <option value="name">Имя</option>
           <option value="count">Количество</option>
           <option value="distance">Расстояние</option>
         </select>
-        <select className="form-select" aria-label="Default select example" defaultValue={'default'} onChange={(e) => { setCondition(e.currentTarget.value) }}>
-          <option value="default" disabled >Выберите условие</option>
+        <select className="form-select" aria-label="Default select example" value={condition} onChange={(e) => { setCondition(e.currentTarget.value) }}>
+          <option value="" disabled >Выберите условие</option>
           <option value="equals">Равно</option>
           <option value="contain">Содержит</option>
           <option value="more">Больше</option>
