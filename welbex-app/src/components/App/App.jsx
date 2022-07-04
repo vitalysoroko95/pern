@@ -23,13 +23,11 @@ const App = () => {
     setData(table)
   }, [])
   useEffect(() => {
-
     if (value && column && condition) {
       filterData(condition, value, column)
     } else {
       setData(table)
     }
-
   }, [value, column, condition])
 
   const table = useSelector((state) => state.main.table);
@@ -46,25 +44,25 @@ const App = () => {
     const copyArray = [...data];
     if (condition == 'equals') {
       const filtered = copyArray.filter((item) =>
-        item[column] == value
+        item[column] == value.trim()
       )
       setData(filtered)
     }
     if (condition == 'more') {
       const filtered = copyArray.filter((item) =>
-        item[column] > value
+        item[column] > value.trim()
       )
       setData(filtered)
     }
     if (condition == 'less') {
       const filtered = copyArray.filter((item) =>
-        item[column] < value
+        item[column] < value.trim()
       )
       setData(filtered)
     }
     if (condition == 'contain') {
       const filtered = copyArray.filter((item) =>
-        item[column].toString().includes(value)
+        item[column].toString().includes(value.trim())
       )
       setData(filtered)
     }
