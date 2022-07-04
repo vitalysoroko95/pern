@@ -42,9 +42,7 @@ const Filters = () => {
 
   return (
     <div className="filters-container"> {error && <p className='error'>{error}</p>}
-
       <Form className='form-container'>
-
         <select className="form-select" aria-label="Default select example" value={column} onChange={(e) => { setColumn(e.currentTarget.value) }}>
           <option value="" disabled >Выберите колонку</option>
           <option value="name">Имя</option>
@@ -58,9 +56,7 @@ const Filters = () => {
           <option value="more">Больше</option>
           <option value="less">Меньше</option>
         </select>
-
         <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Введите значение" value={value} onChange={(e) => { setValue(e.currentTarget.value) }} />
-
         <Button variant="primary" disabled={!value || !column || !condition} type="submit" onClick={handleSubmit} >
           Фильтр
         </Button>
